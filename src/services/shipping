@@ -1,0 +1,48 @@
+import api from "./apiConfig.js";
+
+export const getShippings = async () => {
+  try {
+    const response = await api.get("/shipping");
+    return response.data;
+  } catch (error) {
+    console.error(`Failed to get pledges - error: ${error}`);
+    throw error;
+  }
+};
+
+export const getShipping = async (id) => {
+    try {
+      const response = await api.get(`/shipping/${id}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Failed to get charity - error: ${error}`);
+      throw error;
+    }
+  }
+
+export const createShipping = async (pledge) => {
+    try {
+      const response = await api.post("/shipping", pledge);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  export const updateShipping = async (id, update) => {
+    try {
+      const response = await api.put(`/shipping/${id}`, update);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  export const deleteShipping = async (id) => {
+    try {
+      const response = await api.delete(`/shipping/${id}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
