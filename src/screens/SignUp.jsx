@@ -67,6 +67,7 @@ const SignUp = (props) => {
       setForm({
         name: '',
         email: '',
+        // UserName:'',
         password: '',
         passwordConfirmation: '',
         isError: true,
@@ -109,7 +110,7 @@ const SignUp = (props) => {
             name='password'
             value={password}
             type='password'
-            placeholder='Password'
+            placeholder='Password' 
             onChange={handleChange}
           />
         <label>Password Confirmation</label>

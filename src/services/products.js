@@ -20,9 +20,18 @@ export const getProduct = async (id) => {
     }
   }
 
-export const createProduct = async (pledge) => {
+  export const getProductsByCountry = async (countryName) => {
     try {
-      const response = await api.post("/products", pledge);
+      const response = await api.get(`/products/country/${countryName}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+export const createProduct = async (product) => {
+    try {
+      const response = await api.post("/products", product);
       return response.data;
     } catch (error) {
       throw error;

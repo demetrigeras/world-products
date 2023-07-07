@@ -14,6 +14,9 @@ export default function Nav(props) {
           {user ? (
             <>
               <div className="welcome-nav">Welcome! {user.name}</div>
+              <div className="cart"> 
+              Cart(0)
+              </div>
               <div className="signOut">
                 <NavLink to="/sign-out">Sign Out</NavLink>
               </div>

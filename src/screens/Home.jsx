@@ -3,6 +3,7 @@ import { getCountries, getCountry } from '../services/countryinfo.js'
 
 
 
+
 export default function Home() {
     const [countries, setCountries] = useState([])   
     console.log('render')
@@ -21,9 +22,7 @@ export default function Home() {
         fetchCountries()
     },[])
 
-    const handleSubmit = () => {
-      
-    }
+    
     
 
 return (
@@ -41,10 +40,8 @@ return (
        </a>
     </ul>
   ))}
-
-
     </div>
-
+    
     
     </div>
 );
