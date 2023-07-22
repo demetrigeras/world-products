@@ -46,6 +46,15 @@ export const createProduct = async (product) => {
       throw error;
     }
   };
+  
+  // export const updateProductsByCountry = async (countryName, update) => {
+  //   try {
+  //     const response = await api.put(`/products/country/${countryName}`, update);
+  //     return response.data;
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // };
 
   export const deleteProduct = async (id) => {
     try {

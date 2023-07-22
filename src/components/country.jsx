@@ -23,7 +23,7 @@ export default function CountryP(props) {
   const [productUpdate, setProductUpdate] = useState("");
   const { product, showButtons } = props;
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const { name } = useParams();
+  const { name, id } = useParams();
   const [productdata, setProductdata] = useState({
     Name: "",
     Price: 0,
@@ -31,7 +31,7 @@ export default function CountryP(props) {
     Details: "",
     Country: "",
   });
-
+ 
   const fetchCountry = async () => {
     try {
       const oneCountry = await getCountry(name);
@@ -65,7 +65,7 @@ export default function CountryP(props) {
   const fetchProdcuts = async () => {
     try {
       const alldaproducts = await getProductsByCountry(name);
-      console.log(alldaproducts);
+      // console.log(alldaproducts);
       setNewLogo(productdata.logo);
       setAllproducts(alldaproducts);
     } catch (error) {
@@ -136,15 +136,18 @@ export default function CountryP(props) {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    await updateProduct(productdata._id, productUpdate);
+    // await updateProduct(name, productdata._id);
+    // navigate(`/products/${id}`, {replace: true})
+    await updateProduct(id , productdata) //productUpdate);
     setToggle((prev) => !prev);
-    
+    navigate(`/${country.name && country.name.common}`)
+    // navigate(`/products/${name}`, {replace: true})
   };
 
- 
   const handleDelete = async (e) => {
     e.preventDefault();
     await deleteProduct(productdata._id);
+    // navigate(`/products/${id}`, {replace: true})
     setToggle((prev) => !prev);
   };
 
@@ -228,6 +231,9 @@ export default function CountryP(props) {
     <p>Details: {product.Details}</p>
     <button className="editproduct" onClick={() => handleEditProduct(product)}>
       Edit
+    </button>
+    <button className="deleteprod" onClick={() => handleDelete(productdata._id)}>
+    Delete
     </button>
   </div>
   
